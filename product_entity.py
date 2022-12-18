@@ -62,6 +62,8 @@ class Product(IProduct):
     date_created_gmt:datetime,date_modified_gmt:datetime
     ):
         mdict = {
+        "product_id":product__id,
+        "category_id":category__id,
         "title":title,
         "short_description":short_description,
         "description":description,
@@ -80,6 +82,8 @@ class Product(IProduct):
         }
         for product in products:
             if product["product_id"] == product_id:
+                product__id = product["product_id"]
+                category__id = product["category_id"]
                 index_of_product = products.index(product)
                 replace = products[index_of_product] = mdict
                 return(products)
