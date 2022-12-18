@@ -55,12 +55,13 @@ class Product(IProduct):
         else:
             return("No products matched with given id.")
 
-    def update(self,product_id,title:str,short_description:str,description:str,
+    def update(self,title:str,short_description:str,description:str,
     slug:str,permalink:str,IsAvailable:bool,sku:str,price:float,
     regular_price:float,sale_price:float,
     manage_stock:int,stock_quantity:int,IsVisible:bool,
     date_created_gmt:datetime,date_modified_gmt:datetime
     ):
+        user_product_id = int(input("Which product do you want to update: "))
         mdict = {
         "product_id":"test",
         "category_id":"test",
@@ -81,13 +82,15 @@ class Product(IProduct):
         "date_modified_gmt":date_modified_gmt
         }
         for product in products:
-            if product["product_id"] == product_id:
+            if product["product_id"] == user_product_id:
                 product__id = product["product_id"]
                 category__id = product["category_id"]
                 index_of_product = products.index(product)
                 mdict.update(product_id=product__id,category_id=category__id)
-                replace = products[index_of_product] = mdict
+                products[index_of_product] = mdict
                 return(products)
+        else:
+            return("No product were matched with the given id")
                 
 
 
@@ -96,8 +99,8 @@ class Product(IProduct):
 
 obj1 = Product()
 dat = datetime(2014,3,4,4,3,2)
-print(obj1.create(3,3,"g","h","h","j","j",True,"d",3.0,3.0,3.0,3,3,True,dat,dat))
-print(obj1.update(3,"gggg","hhhh","hhhh","j","j",True,"d",3.0,3.0,3.0,3,3,True,dat,dat))
+print(obj1.create(3,5,"g","h","h","j","j",True,"d",3.0,3.0,3.0,3,3,True,dat,dat))
+print(obj1.update("gggg","hhhh","hhhh","j","j",True,"d",3.0,3.0,3.0,3,3,True,dat,dat))
 
 
 # print(obj1.read(4))
