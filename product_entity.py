@@ -62,8 +62,8 @@ class Product(IProduct):
     date_created_gmt:datetime,date_modified_gmt:datetime
     ):
         mdict = {
-        "product_id":product__id,
-        "category_id":category__id,
+        "product_id":"test",
+        "category_id":"test",
         "title":title,
         "short_description":short_description,
         "description":description,
@@ -85,6 +85,7 @@ class Product(IProduct):
                 product__id = product["product_id"]
                 category__id = product["category_id"]
                 index_of_product = products.index(product)
+                mdict.update(product_id=product__id,category_id=category__id)
                 replace = products[index_of_product] = mdict
                 return(products)
                 
