@@ -13,7 +13,7 @@
 
 ## Authors
 
-- [(https://github.com/alireza-hashemii)]
+- (https://github.com/alireza-hashemii)
 
 
 ## 🛠 Skills
