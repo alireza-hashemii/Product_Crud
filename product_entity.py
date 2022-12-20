@@ -1,8 +1,9 @@
 from datetime import datetime
 
-products = []
+
 
 class Product():
+    products = []
     def __init__(self,product_id:int,category_id:int,title:str,short_description:str,description:str,
         slug:str,permalink:str,Is_Available:bool,sku:str,price:float,regular_price:float,
         sale_price:float,manage_stock:int,stock_quantity:int,Is_Visible:bool,
@@ -32,12 +33,12 @@ class Product():
 
     def create(self):
         for item in self.data_list:
-            products.append(item)
+            self.products.append(item)
         print("It has succesfully created.")
-        return products
+        return self.__repr__()
 
     def read(self):
-        for product in products:
+        for product in self.products:
             print(product,end=", ")
    
 
@@ -45,21 +46,22 @@ class Product():
         if len(updated_values) < 17:
             print("Pleasse assign a value to the all fields")
         else:
-            if len(products) == 0:
+            if len(self.products) == 0:
                 return("There is nothing to update.")
             else: 
-                products.clear()
+                self.products.clear()
                 for item in updated_values:
-                    products.append(item)
+                    self.products.append(item)
                 print("It has succesfully updated.")
-                return(products)
+                return(self.__repr__())
 
     def delete(self):
-        if len(products) != 0:
-            products.clear()
+        if len(self.products) != 0:
+            self.products.clear()
             print("It has succesfully deleted.")
-            return(products)
+            return(self.__repr__())
         else:
             return("There is no product")
             
-
+    def __repr__(self) -> str:
+        return(f"Products: {self.products}")
