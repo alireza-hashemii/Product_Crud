@@ -13,7 +13,7 @@
 
 ## Authors
 
-- [[@alireza-hashemii](https://github.com/alireza-hashemii)](https://www.github.com/octokatherine)
+- [(https://github.com/alireza-hashemii)]
 
 
 ## 🛠 Skills
