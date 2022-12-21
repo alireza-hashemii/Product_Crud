@@ -1,7 +1,6 @@
 from datetime import datetime
 
 
-
 class Product():
     products = []
     def __init__(self,product_id:int,category_id:int,title:str,short_description:str,description:str,
@@ -65,3 +64,5 @@ class Product():
             
     def __repr__(self) -> str:
         return(f"Products: {self.products}")
+
+print(type(Product))
