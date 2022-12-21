@@ -8,6 +8,9 @@ class Product():
         sale_price:float,manage_stock:int,stock_quantity:int,Is_Visible:bool,
         date_created_gmt:datetime,date_modified_gmt:datetime):
 
+        assert product_id >= 0,f"Product id should be greater than zero but {product_id} is not"
+        assert category_id >= 0,f"category id should be greater than zero but {product_id} is not"
+
         self.product_id = product_id
         self.category_id = category_id
         self.title = title
