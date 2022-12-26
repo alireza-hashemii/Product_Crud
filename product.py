@@ -68,4 +68,3 @@ class Product():
     def __repr__(self) -> str:
         return(f"Products: {self.products}")
 
-print(type(Product))
