@@ -14,12 +14,14 @@ def main():
     print(product1.update([2,2,"test","No","No","product","link",True,"nothing",1.0,1.0,1.0,3,3,False,datetime.now(),datetime.now()]))
     # D
     print(product1.delete())
+    
 
 # isisntance method
 print(isinstance(product1,Product)) # Output --> True
 
 # type method
 print(type(product1)) # Output --> <class 'product.Product'>
+
 
 
 if __name__ == "__main__":

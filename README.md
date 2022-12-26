@@ -1,4 +1,3 @@
-
 ## Documentation
 
 [It is a simple CRUD application made with pure Python base on OOP concepts. There are some  really simple terms to follow. If you're curious to run the program and see how it works, 1- clone this repo into your local system 2- make an object in main.py and then you can easily start your adventure](https://linktodocumentation)
