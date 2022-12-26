@@ -13,7 +13,7 @@
 *_BASE_*.txt
 *_LOCAL_*.txt
 *_REMOTE_*.txt
-
+*LICENSE
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
