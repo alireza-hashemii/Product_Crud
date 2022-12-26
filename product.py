@@ -29,42 +29,25 @@ class Product():
         self.date_created_gmt = date_created_gmt
         self.date_modified_gmt =  date_modified_gmt
 
-        self.data_list = [self.product_id,self.category_id,self.title,self.short_description,self.description,
-        self.slug,self.permalink,self.is_available,self.sku,self.price,self.regular_price,self.sale_price,
-        self.manage_stock,self.stock_quantity,self.is_visible,self.date_created_gmt,self.date_modified_gmt]
-
     def create(self):
-        for item in self.data_list:
-            self.products.append(item)
-        print("It has succesfully created.")
-        return self.__repr__()
+        self.products.append(self)
+        return(self.products)
 
     def read(self):
         for product in self.products:
             return(product)
    
 
-    def update(self,updated_values:list):
-        if len(updated_values) < 17:
-            print("Pleasse assign a value to the all fields")
-        else:
-            if len(self.products) == 0:
-                return("There is nothing to update.")
-            else: 
-                self.products.clear()
-                for item in updated_values:
-                    self.products.append(item)
-                print("It has succesfully updated.")
-                return(self.__repr__())
+    def update(self,name:str):
+        self.title = name
+        print("it has succesfully updated.")
+        return(self.products)
 
     def delete(self):
-        if len(self.products) != 0:
-            self.products.clear()
-            print("It has succesfully deleted.")
-            return(self.__repr__())
-        else:
-            return("There is no product")
+        self.products.clear()
+        print("it has succesfully deleted.")
+        return(self.products)
             
     def __repr__(self) -> str:
-        return(f"Products: {self.products}")
+        return(f"Products: {self.title}")
 
