@@ -41,7 +41,7 @@ class Product():
 
     def read(self):
         for product in self.products:
-            print(product,end=", ")
+            return(product)
    
 
     def update(self,updated_values:list):

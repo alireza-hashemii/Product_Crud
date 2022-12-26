@@ -9,7 +9,7 @@ def main():
     # C
     print(product1.create())
     # R
-    product1.read()
+    print(product1.read())
     # U
     print(product1.update([2,2,"test","No","No","product","link",True,"nothing",1.0,1.0,1.0,3,3,False,datetime.now(),datetime.now()]))
     # D
