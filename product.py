@@ -1,8 +1,10 @@
 from datetime import datetime
 
+products = {}
 
 class Product():
-    products = []
+    
+
     def __init__(self,product_id:int,category_id:int,title:str,short_description:str,description:str,
         slug:str,permalink:str,Is_Available:bool,sku:str,price:float,regular_price:float,
         sale_price:float,manage_stock:int,stock_quantity:int,Is_Visible:bool,
@@ -29,25 +31,38 @@ class Product():
         self.date_created_gmt = date_created_gmt
         self.date_modified_gmt =  date_modified_gmt
 
+
     def create(self):
-        self.products.append(self)
-        return(self.products)
+        for key,value in self.__dict__.items():
+            products[key] = value
+        return (self.__repr__())
+            
 
-    def read(self):
-        for product in self.products:
-            return(product)
+    def read(self,id:int):
+        for key,value in products.items():
+            if key == "product_id" and value == id:
+                return(self.__repr__())
+        else:
+                print("No product found with given id.")
+        
    
+    def read_all(self):
+        for key,value in products.items():
+            return(f"{key} : {value}")
 
-    def update(self,name:str):
-        self.title = name
-        print("it has succesfully updated.")
-        return(self.products)
+
+    def update(self,title:str):
+        self.title = title
+        return(self.__repr__())        
+      
 
     def delete(self):
-        self.products.clear()
-        print("it has succesfully deleted.")
-        return(self.products)
+        products.clear()
+        print("It has succesfully deleted.")
+        return(products)
+         
             
     def __repr__(self) -> str:
-        return(f"Products: {self.title}")
+        return(f"Product is : {self.product_id} \n {self.title} \n {self.category_id} \n {self.short_description} \n {self.description} \n {self.slug} \n {self.permalink} \n {self.is_available} \n {self.sku} \n {self.price} \n {self.stock_quantity}\n {self.date_created_gmt} \n {self.date_modified_gmt}")
+
 
