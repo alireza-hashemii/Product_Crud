@@ -1,6 +1,6 @@
 from datetime import datetime
 
-products = {}
+products = []
 
 class Product():
     
@@ -33,36 +33,52 @@ class Product():
 
 
     def create(self):
+        dict = {}
         for key,value in self.__dict__.items():
-            products[key] = value
-        return (self.__repr__())
+            dict[key] = value
+        products.append(dict)
+        return(self.__repr__())
             
 
     def read(self,id:int):
-        for key,value in products.items():
-            if key == "product_id" and value == id:
-                return(self.__repr__())
+        for product in products:
+            if product["product_id"] == id:
+                for key,value in product.items():
+                    print(f"{key} : {value}")
+                return("That was all of it.")
         else:
-                print("No product found with given id.")
+            return('No product found with the given id.')
+        
         
    
     def read_all(self):
-        for key,value in products.items():
-            return(f"{key} : {value}")
+        dummy = ""
+        for product in products:
+            for key,value in product.items():
+                dummy += f" {key} : {value} \n"
+        return(dummy)
 
 
-    def update(self,title:str):
-        self.title = title
-        return(self.__repr__())        
+    def update(self,id:int,title:str):
+        for product in products:
+            if product["product_id"] == id:
+                product["title"] = title
+                return(product)
+        else:
+            return("No products found with the given id.")
       
 
-    def delete(self):
-        products.clear()
-        print("It has succesfully deleted.")
-        return(products)
+    def delete(self,id:int):
+        for product in products:
+            if product["product_id"] == id:
+                products.remove(product)
+                return(products)
+        else:
+            return("No product found with the given id.")
+
          
             
     def __repr__(self) -> str:
-        return(f"Product is : {self.product_id} \n {self.title} \n {self.category_id} \n {self.short_description} \n {self.description} \n {self.slug} \n {self.permalink} \n {self.is_available} \n {self.sku} \n {self.price} \n {self.stock_quantity}\n {self.date_created_gmt} \n {self.date_modified_gmt}")
+        return(f"Product is : {self.product_id} \n {self.title} \n {self.category_id} \n {self.short_description} \n {self.description} \n {self.slug} \n {self.permalink} \n {self.is_available} \n {self.sku} \n {self.price} \n {self.stock_quantity} \n {self.date_created_gmt} \n {self.date_modified_gmt}")
 
-
+              
